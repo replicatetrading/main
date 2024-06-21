@@ -76,6 +76,49 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
+        .contact-form {
+            max-width: 600px; /* Adjust maximum width of the form container */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%; /* Make all form inputs 100% width */
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+            font-size: 16px; /* Adjust font size if needed */
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* Allow vertical resizing of textarea */
+        }
+
+        .contact-form button {
+            background-color: #002379;
+            color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #001a5e;
+        }
+
+
+
+
+
+
+
+
         .cta-button:hover {
             background-color: #e67a00;
         }
@@ -169,12 +212,16 @@
             </div>
             <div class="grid-item">
                 <h3>2. Get Access to Your Admin Dashboard</h3>
-                <p>Your admin dashboard lets you add your followers' API keys and secrets. This allows you seemlessly and automatically replicate your trades on their account.</p> 
+                <p><strong>Your admin dashboard lets you:</strong></p> 
+
+                <li>Add your followers' API keys and secrets</li>
+                <li>Seemlessly & automatically replicate your trades on their account</li>
+                
               
             </div>
             <div class="grid-item">
                 <h3>3. Start Trading</h3>
-                <p>Begin sharing your trades and helping your followers succeed in cryptocurrency trading.</p>
+                <p>Begin replicating your trades to your followers in real-time and help them succeed in their crypto trading jounrney.</p>
             </div>
         </div>
     </section>
@@ -315,7 +362,7 @@
     </div>
 </div>
 </section> 
-    <section id="blog" class="section">
+ <!--    <section id="blog" class="section">
         <h2>Blog & Resources</h2>
         <div class="grid">
             <div class="grid-item">
@@ -327,7 +374,7 @@
                 <p>Discover expert strategies to enhance your trading.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="faq" class="section">
         <h2>Frequently Asked Questions</h2>
@@ -340,17 +387,18 @@
                 <h3>What exchanges do you support?</h3>
                 <p>We currently support Binance, Kucoin, and Crypto.com, with more coming soon.</p>
             </div>
+            <div class="grid-item">
+                <h3>What sort of orders types are supported?</h3>
+                <p>We support both Market and Limit order placements across Spot and Futures markets depending on your tier</p>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
+<!--     <section id="contact" class="section">
         <h2>Contact Us</h2>
         <div class="grid">
             <div class="grid-item contact-form">
                 <h3>Get in Touch</h3>
-
-
-
             <form id="contactForm">
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
@@ -358,18 +406,40 @@
                     <option value="interested">I'm Interested</option>
                     <option value="question">I Have a Question</option>
                     <option value="feedback">I'd Like to Give Feedback</option>
+                    <option value="Others">Others</option>
                 </select>
                 <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+ -->
 
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <div class="grid">
+        <div class="grid-item contact-form">
+            <h3>Get in Touch</h3>
+            <form id="contactForm">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <select name="interest" id="interest">
+                    <option value="interested">I'm Interested</option>
+                    <option value="question">I Have a Question</option>
+                    <option value="feedback">I'd Like to Give Feedback</option>
+                    <option value="others">Others</option>
+                </select>
+                <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
 
 
             </div>
-            <div class="grid-item">
-                <h3>Customer Support/ Enquires </h3>
-                <p>Email: replicatetrading@gmail.com</p>
-            </div>
+           <div class="grid-item">
+            <h3>Customer Support/Enquiries</h3>
+            <p>Email: <a href="mailto:replicatetrading@gmail.com">replicatetrading@gmail.com</a></p>
+        </div>
         </div>
     </section>
 
