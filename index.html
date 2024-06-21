@@ -348,17 +348,23 @@
         <div class="grid">
             <div class="grid-item contact-form">
                 <h3>Get in Touch</h3>
-                <form>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <select name="interest">
-                        <option value="interested">I'm Interested</option>
-                        <option value="question">I Have a Question</option>
-                        <option value="feedback">I'd Like to Give Feedback</option>
-                    </select>
-                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+
+
+
+            <form id="contactForm">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <select name="interest" id="interest">
+                    <option value="interested">I'm Interested</option>
+                    <option value="question">I Have a Question</option>
+                    <option value="feedback">I'd Like to Give Feedback</option>
+                </select>
+                <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+
+
             </div>
             <div class="grid-item">
                 <h3>Customer Support/ Enquires </h3>
@@ -370,5 +376,35 @@
     <footer>
         <p>&copy; 2024 Replicate! All rights reserved.</p>
     </footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var formData = new FormData(form);
+    var queryString = new URLSearchParams(formData).toString();
+
+    var url = "https://script.google.com/macros/s/AKfycbw2DVwK_z2W7fbj4QYD2c4NTbBn0nIZjcAWPaL2ig1QSHNKeVXVCBtb6i3hYIivcd1L0g/exec";
+
+    fetch(url + "?" + queryString, {
+        method: "GET",
+        mode: "no-cors"
+    })
+    .then(response => {
+        console.log("Form submitted");
+        alert("Form submitted successfully!");
+        form.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Error submitting form. Please try again.");
+    });
+
+    // Log the data being sent
+    console.log("Sending data:", Object.fromEntries(formData));
+});
+</script>
+
+
 </body>
 </html>
