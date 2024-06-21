@@ -3,453 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Replicate! - Cryptocurrency Influencers Copy Trading Platform</title>
+    <title>Replicate! - Crypto Influencers Copy Trading Platform</title>
     <style>
         body {
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Black Crow', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #FFFFFF;
-            color: #002379;
-            scroll-behavior: smooth;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
         header {
             background-color: #002379;
             color: #FFFFFF;
-            padding: 2rem;
-            text-align: left;
+            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+        .header-content {
             display: flex;
             align-items: center;
         }
-        header img {
-            height: 7vh;
-            margin-right: 2vw;
+        .header-content h1 {
+            font-size: 1.5rem;
+            margin: 0;
         }
-        .header-content {
-            margin-left: 0;
+        .header-content p {
+            font-size: 0.9rem;
+            margin: 0;
+            margin-left: 1rem;
         }
         nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
             background-color: #FF8A08;
-            padding: 1rem;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            width: 100%;
+            padding: 0.5rem;
         }
         nav a {
-            margin: 0.5rem 1rem;
             color: #FFFFFF;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            transition: background-color 0.3s;
         }
         nav a:hover {
-            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.1);
         }
         .section {
-            padding: 4rem clamp(1rem, 5vw, 3rem);
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            box-sizing: border-box;
-            scroll-margin-top: 100px; 
-        }
-        .section:nth-child(even) {
-            background-color: #F0F0F0;
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            padding-top: 20px; 
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #002379;
         }
-        .cta-buttons {
-            display: flex;
-            justify-content: flex-start;
+        .bg-img {
+            background-image: url('business-meeting-office_1268-21528_washed.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #002379;
+            text-align: left;
+            padding: 4rem 5%;
         }
-        .cta-buttons a {
+        .cta-button {
             display: inline-block;
-            margin: 1rem;
-            padding: 1rem 2rem;
-            background-color: #002379;
+            padding: 0.75rem 1.5rem;
+            background-color: #FF8A08;
             color: #FFFFFF;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
-        .cta-buttons a:hover {
-            background-color: #FF8A08;
-            color: #002379;
+        .cta-button:hover {
+            background-color: #e67a00;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         .grid-item {
             background-color: #FFFFFF;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            max-width: 80vw;
-            margin: 0 auto;
-            flex-basis: calc(25% - 20px); /* Adjust as needed */
-            margin-bottom: 20px; /* Adjust spacing */
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .grid-item:hover {
-            transform: translateY(-10px);
-        }
-  
-
-        /* CSS to make grid boxes shorter vertically */
-        #pricing .grid-item {
-            height: 30px; /* Adjust height as needed */
-        }
-
-        #pricing .grid-item {
-        flex-basis: calc(50% - 20px); /* Adjust width of grid items */
-        margin-bottom: 20px; /* Adjust margin between grid items */
-        padding: 20px; /* Add padding to grid items */
-        box-sizing: border-box; /* Include padding in width calculation */
-        height: auto; /* Allow grid items to adjust height based on content */
-        }
-
-        #pricing .grid-item h3,
-        #pricing .grid-item p {
-            margin: 0; /* Remove default margins */
-        }
-
         .contact-form input,
-        .contact-form textarea {
-            max-width: 80vw;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
         .contact-form button {
-            padding: 1rem 2rem;
-            background-color: #FF8A08;
-            border: none;
-            color: #002379;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .contact-form button:hover {
             background-color: #002379;
             color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #001a5e;
         }
         footer {
             background-color: #002379;
             color: #FFFFFF;
             text-align: center;
-            padding: 2rem;
-            position: relative;
-            width: 100%;
+            padding: 1rem;
         }
-        .bg-img {
-            background-image: url('/Users/anurag.srivastava/Desktop/anurag-quant/Replicate/Replicate/final/business-meeting-office_1268-21528_washed.jpg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 50vh;
-            border-radius: 10px;
-            color: 002379;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .section p {
-            word-wrap: break-word;
-        }
-
-
-                .small-input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .big-textbox {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-            resize: vertical;
-        }
-
-        .contact-form form {
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background-color: #002379;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .contact-form button:hover {
-            background-color: #FF8A08;
-        }
-
-        .grid-item {
-            background-color: #FFFFFF;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            max-width: 80vw;
-            margin: 0 auto;
-            flex-basis: calc(25% - 20px);
-            margin-bottom: 20px;
-        }
-
-        .grid-item:hover {
-            transform: translateY(-10px);
-        }
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
-<!--     <header>
-        <img src="final.png" alt="Replicate! Logo" style="height: 110px;">
+    <header>
         <div class="header-content">
+            <img src="logo_main.png" alt="Replicate! Logo">
             <h1>Replicate!</h1>
-            <p>The ultimate copy trading platform to enable your followers to place trades just as you do.</p>
-        </div>
-    </header> -->
-
-    <header style="padding: 1rem;">
-        <img src="final.png" alt="Replicate! Logo" style="height: 60px;">
-        <div class="header-content">
-            <h1 style="font-size: 1.5rem; margin-bottom: 0;">Replicate!</h1>
-            <p style="font-size: 0.8rem; margin-top: 0;">The ultimate copy trading platform to enable your followers to place trades just as you do.</p>
+            <p>Trade Together, Win Together!</p>
         </div>
     </header>
-
-
 
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#how-it-works">How It Works</a>
+        <a href="#benefits">Benefits</a>
         <a href="#pricing">Pricing</a>
-        <a href="#blog">Blog/Resources</a>
+        <a href="#blog">Blog</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
     </nav>
-    <section id="home" class="section bg-img">
-        <div style="text-align: left;">
-            <h2>Welcome to Replicate!</h2>
-            <p>Empower your followers and monetize your expertise in cryptocurrency trading. Share your trades, earn passive income, and guide your followers to success. Join our platform to amplify your influence and enrich your community's trading journey.</p>
-            <div class="cta-buttons" style="text-align: left;">
-                <a href="#about">Become a Tradefluencer</a>
-            </div>
-        </div>
+
+    <section id="home" class="bg-img">
+        <h2>Welcome to Replicate!</h2>
+        <p>Replicate ensures precise trade replication for crypto investors. Our platform mirrors trades from master to client accounts on Binance, replicating limit and market orders based on client preferences (volume or proportional). Trust Replicate for efficient, secure, and compliant trading solutions, optimizing portfolio management across multiple accounts. Join us for seamless replication services and elevate your trading strategies today..</p>
+        <a href="#about" class="cta-button">Become a Tradefluencer today!</a>
     </section>
 
     <section id="about" class="section">
-        <h2>About Us</h2>
-        <p><strong>Mission Statement:</strong> Our mission is to democratize cryptocurrency trading by bridging influencers with followers, empowering everyone to be successful.</p>
-        <p><strong>Company History:</strong> Replicate is a bold newcomer in the cryptocurrency realm. Despite our youth, we're rapidly gaining ground, fueled by the courage to innovate.</p>
-        <p><strong>Our Team:</strong> Our dynamic team is fueled by passion, innovation, and a daring spirit. With diverse expertise in trading, technology, and customer support, we're driving towards a future where everyone can thrive in the crypto market.</p>
+
+
+         <h2>About Us</h2>
+        <div class="section-content">
+            <p><strong>Our Mission:</strong> Revolutionizing cryptocurrency trading by bridging influencers with followers, empowering everyone to achieve financial success.</p>
+            <p><strong>Our Story:</strong> Born from a passion for innovation, Replicate is redefining the crypto landscape with cutting-edge solutions and a relentless drive for excellence.</p>
+            <p><strong>Meet Our Team:</strong> A powerhouse of trading veterans, tech wizards, and customer care champions united in our mission to democratize crypto trading for all.</p>
+        </div>
+
+
+
     </section>
 
-
     <section id="how-it-works" class="section">
-    <h2>How It Works ?</h2>
-    <div class="grid">
-        <div class="grid-item">
-            <h3>Sign Up</h3>
-            <p>Create an account on our platform and verify your identity to get started.</p>
-        </div>
-        <div class="grid-item">
-            <h3>Get Access to Your Admin Dashboard</h3>
-            <p>Your admin dashboard that lets you add your followers' API keys and secrets. This allows you to replicate your trades on their exchange of choice.</p> 
-            <img src="admin_dashboard_image copy.png" alt="Admin Dashboard" style="max-width: 100%;">
-        </div>
-        </div>
-        <div class="grid-item">
-            <h3>That's It!</h3>
-            <p>You're all set to start sharing your trades and helping your followers succeed in cryptocurrency trading.</p>
-        </div>
-    </div>
-
-    <h2>What is in it for me?</h2>
-    <div class="grid">
-        <div class="grid-item">
-            <h3>Benefits to you as the Influencer</h3>
-            <ul>
-                <li><strong>Earn Additional Income:</strong> Share your trades with your followers and generate a steady stream of passive income.</li>
-                <li><strong>Build Your Personal Brand:</strong> Establish yourself as a trusted trading authority and grow your influence within the cryptocurrency community.</li>
-                <li><strong>Enhance Your Reach:</strong> Connect with a broader audience by showcasing your expertise on a dedicated platform tailored for cryptocurrency enthusiasts.</li>
-                <li><strong>Strengthen Community Engagement:</strong> Foster a loyal following by providing valuable insights and strategies, enhancing your relationship with your audience.</li>
-                <li><strong>Collaborate with Peers:</strong> Network with other top influencers and traders, sharing knowledge and strategies to elevate your trading game.</li>
-                <li><strong>Boost Credibility:</strong> Gain recognition and credibility as your successful trades and insights are shared and appreciated by a growing number of followers.</li>
-                <li><strong>Drive Social Impact:</strong> Empower your followers to achieve financial success and independence by guiding them through the complexities of cryptocurrency trading.</li>
-                <li><strong>Maximize Your Influence:</strong> Leverage our platform to amplify your voice and impact in the cryptocurrency space, becoming a key figure in the industry's future.</li>
-            </ul>
-        </div>
-    </div>
-
-    <h2>Supported Exchanges</h2>
-    <div class="grid">
-        <div class="grid-item">
-            <p>We support a wide range of popular cryptocurrency exchanges, ensuring flexibility and convenience for our users. As we continue to grow, we are constantly adding more exchanges to enhance your trading experience.</p>
-            <ul>
-                <li>Binance</li>
-                <li>Kucoin</li>
-                <li>Crypto.com</li>
-            </ul>
-            <p>As we continue to grow, we are constantly adding more exchanges to enhance your trading experience.</p>
-        </div>
-    </div>
-</section>
-
-<section id="pricing" class="section">
-    <h2>Pricing</h2>
-    <p>Choose a plan that fits your needs:</p>
-    <div class="grid">
-        <div class="grid-item">
-            <h3>Basic</h3>
-            <p>$199.99/month for 1-10 followers</p>
-            <ul>
-                <li>Access spot market trading for essential trading opportunities</li>
-                <li>Dedicated customer support during business hours</li>
-            </ul>
-        </div>
-        <div class="grid-item">
-            <h3>Pro</h3>
-            <p>$399.99/month for 11-100 followers</p>
-            <ul>
-                <li>Unlock spot and futures market trading for diversified strategies</li>
-                <li>Priority customer support and account manager assistance</li>
-            </ul>
-        </div>
-        <div class="grid-item">
-            <h3>Elite</h3>
-            <p>$699.99/month for 100-500 followers</p>
-            <ul>
-                <li>Lightning-fast execution on spot and futures markets</li>
-                <li>Priority 24/7 customer support with dedicated account manager</li>
-            </ul>
-        </div>
-        <div class="grid-item">
-            <h3>Ultimate</h3>
-            <p>$1099.99/month for 500-1000 followers</p>
-            <ul>
-                <li>Access to advanced trading strategies and derivatives trading</li>
-                <li>Personalized 24/7 customer support with dedicated account manager</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-
-
-    <section id="blog" class="section">
-        <h2>Blog/Resources</h2>
-        <p>Stay updated with the latest articles on cryptocurrency trading, tutorials on how to use our platform, and market analysis from experts.</p>
+        <h2>How It Works</h2>
         <div class="grid">
             <div class="grid-item">
-                <h3><a href="https://www.investopedia.com/terms/m/mirror-trading.asp" target="_blank">Introduction to Copy/Mirror Trading</a></h3>
-            <p>Learn the basics of copy trading and how it can benefit you.</p>
-        </div>
-
-
+                <h3>1. Sign Up</h3>
+                <p>Create an account and verify your identity to get started.</p>
+            </div>
             <div class="grid-item">
-            <h3><a href="https://cointracking.info/blog/top-10-crypto-trading-tipps/" target="_blank">Top 10 Tips for Successful Cryptocurrency Trading</a></h3>
-            <p>Discover expert tips to enhance your trading strategies and increase your profits.</p>
-        </div>
-
-
-
-    
-
-
-    <section id="faq" class="section">
-        <h2>FAQ</h2>
-        <div class="grid">
+                <h3>2. Get Access to Your Admin Dashboard</h3>
+                <p>Your admin dashboard lets you add your followers' API keys and secrets. This allows you seemlessly and automatically replicate your trades on their account.</p> 
+              
+            </div>
             <div class="grid-item">
-                <h3>Commonly Asked Questions</h3>
-                <p><strong>Q:</strong> How do I get started?</p>
-                <p><strong>A:</strong> Sign up for an account, Get Access to Your Admin Dashboard, and start sharing your trades and helping your followers.</p>
-                
-                <p><strong>Q:</strong> What exchanges do you support?</p>
-                <p><strong>A:</strong> We currently support Binance, Kucoin, and Crypto.com with more on the way.</p>
-                
-                <p><strong>Q:</strong> What is copy/mirror trading?</p>
-                <p><strong>A:</strong> Copy/mirror trading is a strategy where traders can automatically copy the trades of experienced traders.</p>
-                
-                <p><strong>Q:</strong> How does Replicate! work for influencers?</p>
-                <p><strong>A:</strong> Replicate! allows influencers to share their trades with their followers, enabling them to replicate these trades automatically and earning a fee to do so.</p>
+                <h3>3. Start Trading</h3>
+                <p>Begin sharing your trades and helping your followers succeed in cryptocurrency trading.</p>
             </div>
         </div>
     </section>
 
-
-
-
-<section id="contact" class="section">
-    <h2>Contact Us!</h2>
-    <div class="grid">
-        <div class="grid-item contact-form">
-            <h3>Express Your Interest</h3>
-            <p>We're about to launch soon! Be the first to know and express your interest by filling out the form below:</p>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required class="small-input">
-                <input type="email" name="email" placeholder="Your Email" required class="small-input">
-                <select name="interest" class="small-input">
-                    <option value="interested">I'm Interested!</option>
-                    <option value="ask">I Have a Question</option>
-                    <option value="feedback">I'd Like to Give Feedback</option>
-                </select>
-                <textarea name="message" rows="6" placeholder="Your Message" class="big-textbox" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <div class="grid-item">
-            <h3>Customer Support</h3>
-            <p>Email: support@Replicate.com</p>
-        </div>
-    </div>
-</section>
-
-
-
-     <!--        <div class="grid-item">
-                <h3>Follow Us</h3>
-                <p>
-                    <a href="#">Facebook</a> |
-                    <a href="#">Twitter</a> |
-                    <a href="#">LinkedIn</a>
-                </p>
-            </div> -->
+    <section id="benefits" class="section">
+        <h2>What's in it for me?</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Benefits to you as the Influencer</h3>
+                <ul>
+                    <li><strong>Earn Additional Income:</strong> Share your trades with your followers and generate a steady stream of passive income - You decide your pricing.</li>
+                    <li><strong>Build Your Personal Brand:</strong> Establish yourself as a trusted trading authority and grow your influence within the cryptocurrency community.</li>
+                    <li><strong>Enhance Your Reach:</strong> Connect with a broader audience by showcasing your expertise on a dedicated platform tailored for cryptocurrency enthusiasts.</li>
+                    <li><strong>Strengthen Community Engagement:</strong> Foster a community of like-minded individuals who share a passion for cryptocurrency trading and learning.</li>
+                </ul>
+            </div>
+            <div class="grid-item">
+                <h3>Benefits to your Followers</h3>
+                <ul>
+                    <li><strong>Access to Expertise:</strong> Gain insights from your trusted influencer's trading strategies and replicate their success in real-time.</li>
+                    <li><strong>Learn and Earn:</strong> Learn from the best while earning passive income by mirroring successful trades.</li>
+                    <li><strong>Stay Informed:</strong> Stay updated with the latest market trends and insights, guided by your influencer's expertise.</li>
+                    <li><strong>Community Support:</strong> Join a community of fellow traders and enthusiasts, where knowledge sharing and collaboration thrive.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
+    <section id="pricing" class="section">
+        <h2>Pricing</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Basic</h3>
+                <p>$199.99/month for 1-10 followers</p>
+                <ul>
+                    <li>Spot market trading</li>
+                    <li>Business hours support</li>
+                </ul>
+            </div>
+            <div class="grid-item">
+                <h3>Pro</h3>
+                <p>$399.99/month for 11-100 followers</p>
+                <ul>
+                    <li>Spot and futures trading</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+            <div class="grid-item">
+                <h3>Elite</h3>
+                <p>$699.99/month for 100-500 followers</p>
+                <ul>
+                    <li>Fast execution on all markets</li>
+                    <li>24/7 dedicated support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
+    <section id="blog" class="section">
+        <h2>Blog & Resources</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Introduction to Copy Trading</h3>
+                <p>Learn the basics of copy trading and its benefits.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Top 10 Crypto Trading Tips</h3>
+                <p>Discover expert strategies to enhance your trading.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>How do I get started?</h3>
+                <p>Sign up for an account, set up your dashboard, and start sharing your trades.</p>
+            </div>
+            <div class="grid-item">
+                <h3>What exchanges do you support?</h3>
+                <p>We currently support Binance, Kucoin, and Crypto.com, with more coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <div class="grid">
+            <div class="grid-item contact-form">
+                <h3>Get in Touch</h3>
+                <form>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <select name="interest">
+                        <option value="interested">I'm Interested</option>
+                        <option value="question">I Have a Question</option>
+                        <option value="feedback">I'd Like to Give Feedback</option>
+                    </select>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="grid-item">
+                <h3>Customer Support/ Enquires </h3>
+                <p>Email:replicatetrading@gmail.com</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 Replicate! All rights reserved.</p>
