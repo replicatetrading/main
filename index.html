@@ -21,23 +21,19 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-start; /* Align items horizontally to the start */
+            align-items: center; /* Align items vertically */
         }
-        header img {
-            height: 40px;
+        header .logo {
+            height: 70px; /* Adjust height as needed */
+            width: auto; /* Allow width to adjust based on height */
+            max-width: 100%; /* Ensure logo doesn't exceed its container's width */
             margin-right: 1rem;
         }
-        .header-content {
-            display: flex;
-            align-items: center;
-        }
-        .header-content h1 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-        .header-content p {
-            font-size: 0.9rem;
-            margin: 0;
-            margin-left: 1rem;
+        .hero-image {
+            height: 70px; /* Adjust height as needed */
+            object-fit: contain; /* Ensures the entire image fits within specified dimensions */
         }
         nav {
             background-color: #FF8A08;
@@ -126,10 +122,9 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="logo_main.png" alt="Replicate! Logo">
-            <h1>Replicate!</h1>
-            <p>Trade Together, Win Together!</p>
+            <img src="sdsdsds.png" alt="Replicate! Logo" class="logo">
         </div>
+        <img src="bannertt.png" alt="Hero Image" class="hero-image">
     </header>
 
     <nav>
@@ -142,6 +137,8 @@
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
     </nav>
+
+
 
     <section id="home" class="bg-img">
         <h2>Welcome to Replicate!</h2>
@@ -314,7 +311,7 @@
             <li>Advanced analytics and reporting</li>
             <li>Priority 24/7 support</li>
         </ul>
-        <p>Email <a href="mailto:tradingreplicate@gmail.com">tradingreplicate@gmail.com</a> for more information.</p>
+        <p>Email <a href="mailto: replicatetrading@gmail.com">tradingreplicate@gmail.com</a> for more information.</p>
     </div>
 </div>
 </section> 
@@ -365,7 +362,7 @@
             </div>
             <div class="grid-item">
                 <h3>Customer Support/ Enquires </h3>
-                <p>Email:replicatetrading@gmail.com</p>
+                <p>Email: replicatetrading@gmail.com</p>
             </div>
         </div>
     </section>
