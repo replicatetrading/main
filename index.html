@@ -91,25 +91,57 @@
         }
         
         .bg-img {
-            background-image: url('business-meeting-office_1268-21528_washed.jpg');
+            background-image: url('bitcoin-top-laptop-flat-lay.jpg');
             background-size: cover;
             background-position: center;
             color: var(--primary-color);
             text-align: left;
-            padding: 8rem 5% 4rem;
+            padding: 8rem 5% 6rem; /* Increased bottom padding */
             margin-top: 82px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
-        
+
+
+
+
+
+        .bg-img h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .bg-img h2 .brand-font {
+            font-family: 'Black Crow', sans-serif;
+            /* You might need to adjust the font-weight and font-size 
+               to match the rest of the text, depending on how Black Crow renders */
+            font-weight: normal; /* Adjust as needed */
+            font-size: 1.0em; /* Adjust as needed */
+            color: var(--secondary-color);
+        }
+
+        .bg-img p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 3rem; /* Increased margin after the paragraph */
+            line-height: 1.6;
+        }
         .cta-button {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem; /* Slightly larger button */
             background-color: var(--secondary-color);
             color: #FFFFFF;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem; /* Additional space before the button */
         }
-        
+                
         .cta-button:hover {
             background-color: #e67a00;
             transform: translateY(-2px);
@@ -284,7 +316,12 @@
         }
 
 
-
+        @font-face {
+            font-family: 'Black Crow';
+            src: url('/Users/anurag.srivastava/Desktop/anurag-quant/FollowMe/black-crow-6092212/Blackcrow Regular.otf') format('opentype');
+            font-weight: 100; /* ExtraBold typically corresponds to a font-weight of 800 */
+            font-style: normal;
+        }
 
 
         .pricing-container {
@@ -563,18 +600,13 @@
     </nav>
 
     <section id="home" class="bg-img fade-in">
-        <h2>Welcome to Replicate!</h2>
-        <p>Replicate offers precise trade replication for cryptocurrency traders. Our platform mirrors trades from influencers to client accounts, handling both limit and market orders. At Replicate we ensure efficient, secure, and fast trade execution across multiple accounts. Join us for seamless replication services and elevate your trading strategies today.</p>
+        <!-- <h2>Welcome to Replicate!</h2> -->
+        <h2>Welcome to <span class="brand-font">Replicate</span></h2>
+        <p>Replicate offers precise trade replication for cryptocurrency traders. Our platform mirrors trades from influencers to client accounts, handling both limit and market orders ensuring efficient, secure, and fast trade execution across multiple accounts. Join us for seamless replication services and elevate your trading strategies today.</p>
         <a href="#contact" class="cta-button">Become a Replicator today!</a>
     </section>
 
-<!--     <section id="about" class="section">
-         <h2>About Us</h2>
-        <div class="section-content">
-            <p><strong>Our Mission:</strong> To revolutionize cryptocurrency trading by bridging influencers with followers, empowering everyone to achieve financial success.</p>
-            <p><strong>Our Story:</strong> Replicate is a dynamic force in the cryptocurrency landscape, born from a passion for innovation and a relentless drive for excellence. We are redefining the crypto space with cutting-edge solutions designed to make trading accessible, efficient, and profitable for everyone. At Replicate, we believe in the power of collaboration and the potential of every trader to succeed.</p>
-        </div>
-    </section> -->
+
 
 <section id="about" class="section">
     <h2>About Us</h2>
@@ -614,28 +646,6 @@
 </section>
 
 
-<!--     <section id="how-it-works" class="section">
-        <h2>How It Works</h2>
-        <div class="grid">
-            <div class="grid-item">
-                <h3>1. Sign Up</h3>
-                <p>Create an account and verify your identity to get started.</p>
-            </div>
-            <div class="grid-item">
-                <h3>2. Get Access to Your Admin Dashboard</h3>
-                <p><strong>Your admin dashboard lets you:</strong></p> 
-
-                <li>Add your followers' API keys and secrets</li>
-                <li>Seemlessly & automatically replicate your trades on their account</li>
-                
-              
-            </div>
-            <div class="grid-item">
-                <h3>3. Start Trading</h3>
-                <p>Begin replicating your trades to your followers in real-time and help them succeed in their crypto trading jounrney.</p>
-            </div>
-        </div>
-    </section> -->
 
 
 <section id="how-it-works" class="section">
@@ -699,42 +709,7 @@
         </div>
     </section>
 
-   <!--  <section id="pricing" class="section">
-        <h2>Pricing</h2>
-<div class="grid">
-    <div class="grid-item">
-        <h3>Basic</h3>
-        <p>$199.99/month for up to 10 followers</p>
-        <ul>
-            <li>Spot market trading</li>
-            <li>Limit orders only</li>
-            <li>Business hours support</li>
-        </ul>
-    </div>
-    <div class="grid-item">
-        <h3>Pro</h3>
-        <p>$499.99/month for up to 50 followers</p>
-        <ul>
-            <li>Spot market trading</li>
-            <li>Limit and market orders</li>
-            <li>Optimized order placement</li>
-            <li>Priority support</li>
-        </ul>
-    </div>
-    <div class="grid-item">
-        <h3>Elite</h3>
-        <p>$799.99/month for up to 100 followers</p>
-        <ul>
-            <li>Spot and futures market trading</li>
-            <li>Limit and market orders</li>
-            <li>Fastest execution on all markets</li>
-            <li>24/7 dedicated support</li>
-        </ul>
-    </div>
 
-</div>
-</section> 
- -->
 
 
 <section id="pricing" class="section">
