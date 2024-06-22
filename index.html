@@ -4,41 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Replicate! - Crypto Influencers Copy Trading Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Black Crow', sans-serif;
+        :root {
+            --primary-color: #002379;
+            --secondary-color: #FF8A08;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
+        
         header {
-            background-color: #002379;
+            background-color: var(--primary-color);
             color: #FFFFFF;
             padding: 1rem;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: flex-start; /* Align items horizontally to the start */
-            align-items: center; /* Align items vertically */
+            justify-content: space-between;
+            align-items: center;
         }
+        
         header .logo {
-            height: 70px; /* Adjust height as needed */
-            width: auto; /* Allow width to adjust based on height */
-            max-width: 100%; /* Ensure logo doesn't exceed its container's width */
-            margin-right: 1rem;
+            height: 50px;
+            width: auto;
         }
+        
         .hero-image {
-            height: 70px; /* Adjust height as needed */
-            object-fit: contain; /* Ensures the entire image fits within specified dimensions */
+            height: 50px;
+            object-fit: contain;
         }
+        
         nav {
-            background-color: #FF8A08;
+            background-color: var(--secondary-color);
             padding: 0.5rem;
+            position: fixed;
+            width: 100%;
+            top: 82px;
+            z-index: 999;
         }
+        
         nav a {
             color: #FFFFFF;
             text-decoration: none;
@@ -46,93 +66,73 @@
             display: inline-block;
             transition: background-color 0.3s;
         }
+        
         nav a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-        .section {
-            padding: 3rem 5%;
+        
+/*        .section {
+            padding: 5rem 5% 3rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #002379;
+*/
+        .section {
+        padding: 7rem 5% 3rem; /* Increased top padding */
+        max-width: 1200px;
+        margin: 0 auto;
+        scroll-margin-top: 130px; /* This accounts for the fixed header and nav */
         }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
         .bg-img {
             background-image: url('business-meeting-office_1268-21528_washed.jpg');
             background-size: cover;
             background-position: center;
-            color: #002379;
+            color: var(--primary-color);
             text-align: left;
-            padding: 4rem 5%;
+            padding: 8rem 5% 4rem;
+            margin-top: 82px;
         }
+        
         .cta-button {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background-color: #FF8A08;
+            background-color: var(--secondary-color);
             color: #FFFFFF;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
-
-        .contact-form {
-            max-width: 600px; /* Adjust maximum width of the form container */
-            margin: 0 auto; /* Center the form horizontally */
-        }
-
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%; /* Make all form inputs 100% width */
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; /* Ensure padding and border are included in width */
-            font-size: 16px; /* Adjust font size if needed */
-        }
-
-        .contact-form textarea {
-            resize: vertical; /* Allow vertical resizing of textarea */
-        }
-
-        .contact-form button {
-            background-color: #002379;
-            color: #FFFFFF;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .contact-form button:hover {
-            background-color: #001a5e;
-        }
-
-
-
-
-
-
-
-
+        
         .cta-button:hover {
             background-color: #e67a00;
+            transform: translateY(-2px);
         }
+        
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
+        
         .grid-item {
             background-color: #FFFFFF;
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+        
         .contact-form input,
         .contact-form textarea,
         .contact-form select {
@@ -141,25 +141,407 @@
             margin-bottom: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 16px;
         }
+        
         .contact-form button {
-            background-color: #002379;
+            background-color: var(--primary-color);
             color: #FFFFFF;
             border: none;
             padding: 0.75rem 1.5rem;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
+        
         .contact-form button:hover {
             background-color: #001a5e;
+            transform: translateY(-2px);
         }
+        
         footer {
-            background-color: #002379;
+            background-color: var(--primary-color);
             color: #FFFFFF;
             text-align: center;
             padding: 1rem;
         }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 30px 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--secondary-color);
+        }
+
+        .faq-icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 0 20px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+
+
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .step-content ul {
+            padding-left: 20px;
+        }
+
+        .step-content li {
+            margin-bottom: 5px;
+        }
+
+
+
+
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header h3 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-header .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .pricing-header .price span {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .pricing-header .subtitle {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .pricing-features {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 30px;
+        }
+
+        .pricing-features li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .pricing-cta {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-cta:hover {
+            background-color: #001a5e;
+        }
+
+        .enterprise-option {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .enterprise-option h3 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .enterprise-option p {
+            margin-bottom: 20px;
+        }
+
+        .enterprise-cta {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .enterprise-cta:hover {
+            background-color: #e67a00;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 30px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .about-container {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .about-content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .about-mission, .about-story {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-mission:hover, .about-story:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-mission h3, .about-story h3, .about-values h3 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .about-mission h3::after, .about-story h3::after, .about-values h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .about-values {
+            flex: 1;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-values h3 {
+            color: #ffffff;
+        }
+
+        .values-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .values-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .value-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .value-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-values {
+                order: -1;
+            }
+        }
+
+
+        #scrollToTop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: var(--secondary-color);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+        }
+
+
+        #scrollToTop:hover {
+            background-color: #e67a00;
+            transform: translateY(-3px);
+        }
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
     </style>
 </head>
 <body>
@@ -176,34 +558,63 @@
         <a href="#how-it-works">How It Works</a>
         <a href="#benefits">Benefits</a>
         <a href="#pricing">Pricing</a>
-        <a href="#blog">Blog</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
     </nav>
 
-
-
-    <section id="home" class="bg-img">
+    <section id="home" class="bg-img fade-in">
         <h2>Welcome to Replicate!</h2>
-        <p>Replicate offers precise trade replication for cryptocurrency traders. Our platform mirrors trades from influencers to client accounts, handling both limit and market orders. Trust Replicate for efficient, secure, and fast trade execution across multiple accounts. Join us for seamless replication services and elevate your trading strategies today.</p>
+        <p>Replicate offers precise trade replication for cryptocurrency traders. Our platform mirrors trades from influencers to client accounts, handling both limit and market orders. At Replicate we ensure efficient, secure, and fast trade execution across multiple accounts. Join us for seamless replication services and elevate your trading strategies today.</p>
         <a href="#contact" class="cta-button">Become a Replicator today!</a>
     </section>
 
-    <section id="about" class="section">
-
-
+<!--     <section id="about" class="section">
          <h2>About Us</h2>
         <div class="section-content">
             <p><strong>Our Mission:</strong> To revolutionize cryptocurrency trading by bridging influencers with followers, empowering everyone to achieve financial success.</p>
             <p><strong>Our Story:</strong> Replicate is a dynamic force in the cryptocurrency landscape, born from a passion for innovation and a relentless drive for excellence. We are redefining the crypto space with cutting-edge solutions designed to make trading accessible, efficient, and profitable for everyone. At Replicate, we believe in the power of collaboration and the potential of every trader to succeed.</p>
-           
         </div>
+    </section> -->
+
+<section id="about" class="section">
+    <h2>About Us</h2>
+    <div class="about-container">
+        <div class="about-content">
+            <div class="about-mission">
+                <h3>Our Mission</h3>
+                <p>To revolutionize cryptocurrency trading by bridging influencers with followers, empowering everyone to achieve financial success.</p>
+            </div>
+            <div class="about-story">
+                <h3>Our Story</h3>
+                <p>Replicate is a dynamic force in the cryptocurrency landscape, born from a passion for innovation and a relentless drive for excellence. We are redefining the crypto space with cutting-edge solutions designed to make trading accessible, efficient, and profitable for everyone.</p>
+            </div>
+        </div>
+        <div class="about-values">
+            <h3>Our Values</h3>
+            <ul class="values-list">
+                <li>
+                    <span class="value-icon">💡</span>
+                    <span class="value-text">Innovation</span>
+                </li>
+                <li>
+                    <span class="value-icon">🤝</span>
+                    <span class="value-text">Collaboration</span>
+                </li>
+                <li>
+                    <span class="value-icon">🔒</span>
+                    <span class="value-text">Security</span>
+                </li>
+                <li>
+                    <span class="value-icon">📈</span>
+                    <span class="value-text">Growth</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 
-
-    </section>
-
-    <section id="how-it-works" class="section">
+<!--     <section id="how-it-works" class="section">
         <h2>How It Works</h2>
         <div class="grid">
             <div class="grid-item">
@@ -224,7 +635,43 @@
                 <p>Begin replicating your trades to your followers in real-time and help them succeed in their crypto trading jounrney.</p>
             </div>
         </div>
-    </section>
+    </section> -->
+
+
+<section id="how-it-works" class="section">
+    <h2>How It Works?</h2>
+    <div class="steps-container">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h3>Sign Up</h3>
+                <p>Create an account and verify your identity to get started.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h3>Get Access to Your Admin Dashboard</h3>
+                <p><strong>Your admin dashboard lets you:</strong></p>
+                <ul>
+                    <li>Add your followers' API keys and secrets</li>
+                    <li>Seamlessly & automatically replicate your trades on their account</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h3>Start Trading</h3>
+                <p>Begin replicating your trades to your followers in real-time and help them succeed in their crypto trading journey.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 
     <section id="benefits" class="section">
         <h2>What's in it for me?</h2>
@@ -252,72 +699,8 @@
         </div>
     </section>
 
-    <section id="pricing" class="section">
+   <!--  <section id="pricing" class="section">
         <h2>Pricing</h2>
-        <!-- <div class="grid">
-            <div class="grid-item">
-                <h3>Basic</h3>
-                <p>$199.99/month for 1-10 followers</p>
-                <ul>
-                    <li>Spot market trading</li>
-                    <li>Limit orders only</li>
-                    <li>Business hours support</li>
-                </ul>
-            </div>
-            <div class="grid-item">
-                <h3>Basic Plus</h3>
-                <p>$299.99/month for 1-10 followers</p>
-                <ul>
-                    <li>Spot market trading</li>
-                    <li>Limit and Market orders</li>
-                    <li>Optimized Order placement</li>
-                    <li>Business hours support</li>
-                </ul>
-            </div>
-            <div class="grid-item">
-                <h3>Pro</h3>
-                <p>$499.99/month for 11-50 followers</p>
-                <ul>
-                    <li>Spot market trading</li>
-                    <li>Limit orders only</li>
-                    <li>Optimized Order placement</li>
-                    <li>Priority support</li>
-                </ul>
-            </div>
-            <div class="grid-item">
-                <h3>Pro Plus</h3>
-                <p>$599.99/month for 11-50 followers</p>
-                <ul>
-                    <li>Spot market trading</li>
-                    <li>Limit orders only</li>
-                    <li>Optimized Order placement</li>
-                    <li>Priority support</li>
-                </ul>
-            </div>
-            <div class="grid-item">
-                <h3>Elite</h3>
-                <p>$799.99/month for 100-500 followers</p>
-                <ul>
-                    <li>Spot and Futures market trading</li>
-                    <li>Limit orders only</li>
-                    <li>Fastest execution on all markets</li>
-                    <li>24/7 dedicated support</li>
-                </ul>
-            </div>
-            <div class="grid-item">
-                <h3>Ultimate</h3>
-                <p>$899.99/month for 100-500 followers</p>
-                <ul>
-                    <li>Spot and Futures market trading</li>
-                    <li>Limit orders only</li>
-                    <li>Fastest execution on all markets</li>
-                    <li>24/7 dedicated support</li>
-                </ul>
-            </div>
-        </div>
-    </section> -->
-
-
 <div class="grid">
     <div class="grid-item">
         <h3>Basic</h3>
@@ -348,70 +731,159 @@
             <li>24/7 dedicated support</li>
         </ul>
     </div>
-    <div class="grid-item">
-        <h3>Enterprise</h3>
-        <p>Contact us for custom pricing</p>
-        <ul>
-            <li>Tailored solutions for over 100 followers</li>
-            <li>Dedicated account manager</li>
-            <li>Customized trading strategies</li>
-            <li>Advanced analytics and reporting</li>
-            <li>Priority 24/7 support</li>
-        </ul>
-        <p>Email <a href="mailto: replicatetrading@gmail.com">tradingreplicate@gmail.com</a> for more information.</p>
-    </div>
+
 </div>
 </section> 
- <!--    <section id="blog" class="section">
-        <h2>Blog & Resources</h2>
-        <div class="grid">
-            <div class="grid-item">
-                <h3>Introduction to Copy Trading</h3>
-                <p>Learn the basics of copy trading and its benefits.</p>
+ -->
+
+
+<section id="pricing" class="section">
+    <h2>Pricing</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>Basic</h3>
+                <p class="price">$199.99<span>/month</span></p>
+                <p class="subtitle">for up to 10 followers</p>
             </div>
-            <div class="grid-item">
-                <h3>Top 10 Crypto Trading Tips</h3>
-                <p>Discover expert strategies to enhance your trading.</p>
-            </div>
+            <ul class="pricing-features">
+                <li>Spot market trading</li>
+                <li>Limit orders only</li>
+                <li>Business hours support</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Get Started</a>
         </div>
-    </section> -->
+        <div class="pricing-card featured">
+            <div class="pricing-header">
+                <h3>Pro</h3>
+                <p class="price">$499.99<span>/month</span></p>
+                <p class="subtitle">for up to 50 followers</p>
+            </div>
+            <ul class="pricing-features">
+                <li>Spot market trading</li>
+                <li>Limit and market orders</li>
+                <li>Optimized order placement</li>
+                <li>Priority support</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Get Started</a>
+        </div>
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>Elite</h3>
+                <p class="price">$799.99<span>/month</span></p>
+                <p class="subtitle">for up to 100 followers</p>
+            </div>
+            <ul class="pricing-features">
+                <li>Spot and futures market trading</li>
+                <li>Limit and market orders</li>
+                <li>Fastest execution on all markets</li>
+                <li>24/7 dedicated support</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Get Started</a>
+        </div>
+    </div>
+
+</section>
+
+
+
 
     <section id="faq" class="section">
         <h2>Frequently Asked Questions</h2>
-        <div class="grid">
-            <div class="grid-item">
-                <h3>How do I get started?</h3>
-                <p>Sign up for an account, set up your dashboard, and start sharing your trades.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I get started?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sign up for an account, set up your dashboard, and start sharing your trades.</p>
+                </div>
             </div>
-            <div class="grid-item">
-                <h3>What exchanges do you support?</h3>
-                <p>We currently support Binance, Kucoin, and Crypto.com, with more coming soon.</p>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What exchanges do you support?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We currently support Binance, Kucoin, and Crypto.com, with more coming soon.</p>
+                </div>
             </div>
-            <div class="grid-item">
-                <h3>What sort of orders types are supported?</h3>
-                <p>We support both Market and Limit order placements across Spot and Futures markets depending on your tier</p>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What sort of order types are supported?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We support both Market and Limit order placements across Spot and Futures markets depending on your tier.</p>
+                </div>
             </div>
         </div>
     </section>
 
-<!--     <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <div class="grid">
-            <div class="grid-item contact-form">
-                <h3>Get in Touch</h3>
-            <form id="contactForm">
-                <input type="text" name="name" id="name" placeholder="Your Name" required>
-                <input type="email" name="email" id="email" placeholder="Your Email" required>
-                <select name="interest" id="interest">
-                    <option value="interested">I'm Interested</option>
-                    <option value="question">I Have a Question</option>
-                    <option value="feedback">I'd Like to Give Feedback</option>
-                    <option value="Others">Others</option>
-                </select>
-                <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
- -->
+
+
+
+    <button id="scrollToTop" title="Go to top">↑</button>
+    <!-- <button id="scrollToTop" title="Go to top"><i class="fas fa-chevron-up"></i></button> -->
+
+    <script>
+        // Smooth scrolling for navigation links with offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const headerOffset = 30; // Adjust this value based on your header height
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll to top button functionality
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTop").style.display = "block";
+            } else {
+                document.getElementById("scrollToTop").style.display = "none";
+            }
+        }
+
+        document.getElementById("scrollToTop").onclick = function() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        };
+
+        // Form submission remains the same
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // ... (keep the existing form submission code)
+        });
+
+        // Intersection Observer for fade-in effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+
+
+
 
 <section id="contact" class="section">
     <h2>Contact Us</h2>
@@ -473,7 +945,17 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     // Log the data being sent
     console.log("Sending data:", Object.fromEntries(formData));
 });
+
+
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+    });
+});
 </script>
+
+
 
 
 </body>
