@@ -552,6 +552,87 @@
         }
 
 
+        .benefits-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .benefit-column {
+            flex: 1;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .benefit-header {
+            background-color: var(--primary-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .benefit-header h3 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .benefit-cards {
+            display: grid;
+            gap: 20px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .benefit-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card i {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-container {
+                flex-direction: column;
+            }
+        }
+
+
+
+
+
         #scrollToTop {
         display: none;
         position: fixed;
@@ -685,32 +766,65 @@
 
 
 
-    <section id="benefits" class="section">
-        <h2>What's in it for me?</h2>
-        <div class="grid">
-            <div class="grid-item">
+<section id="benefits" class="section">
+    <h2>What's in it for me?</h2>
+    <div class="benefits-container">
+        <div class="benefit-column">
+            <div class="benefit-header">
                 <h3>Benefits to you as the Influencer</h3>
-                <ul>
-                    <li><strong>Earn Passive Income:</strong> Monetize your trading expertise by sharing trades with followers.</li>
-                    <li><strong>Set Your Pricing:</strong> Control your income by deciding your subscription rates.</li>
-                    <li><strong>Enhance Your Brand:</strong> Build credibility and authority in the crypto community.</li>
-                    <li><strong>Expand Your Reach:</strong> Connect with a wider audience of trading enthusiasts.</li>
-                    <li><strong>Strengthen Community Engagement:</strong> Foster a community of like-minded individuals who share a passion for cryptocurrency trading and learning.</li>
-                </ul>
             </div>
-            <div class="grid-item">
-                <h3>Benefits to your Followers</h3>
-                <ul>
-                    
-                    <li><strong>Simplify Trading:</strong> Enjoy hassle-free trading with automated trade replication.</li>
-                    <li><strong>Access to Expertise:</strong> Mirror the strategies of successful influencers in real-time.</li>
-                    <li><strong>Learn and Earn:</strong> Gain valuable trading insights while generating passive income.</li>
-                    <li><strong>Community Support:</strong> Join a community of fellow traders and enthusiasts, where knowledge sharing and collaboration thrive.</li>
-                </ul>
+            <div class="benefit-cards">
+                <div class="benefit-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4>Earn Passive Income</h4>
+                    <p>Set your own pricing and monetize your trading expertise by sharing trades with followers.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Enhance Your Brand</h4>
+                    <p>Build credibility and authority in the crypto community.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Expand Your Reach</h4>
+                    <p>Connect with a wider audience of trading enthusiasts.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-comments"></i>
+                    <h4>Strengthen Community</h4>
+                    <p>Foster a community of like-minded individuals passionate about crypto trading.</p>
+                </div>
             </div>
         </div>
-    </section>
-
+        <div class="benefit-column">
+            <div class="benefit-header">
+                <h3>Benefits to your Followers</h3>
+            </div>
+            <div class="benefit-cards">
+                <div class="benefit-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>Simplify Trading</h4>
+                    <p>Enjoy hassle-free trading with automated trade replication.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Access to Expertise</h4>
+                    <p>Mirror the strategies of successful influencers in real-time.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-book"></i>
+                    <h4>Learn and Earn</h4>
+                    <p>Gain valuable trading insights while generating passive income.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Community Support</h4>
+                    <p>Join a community where knowledge sharing and collaboration thrive.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -774,7 +888,7 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>Sign up for an account, set up your dashboard, and start sharing your trades.</p>
+                    <p>Sign up for an account, wait for access to your dashboard, add your followers API keys and start replicating your trades. Its that simple! </p>
                 </div>
             </div>
             <div class="faq-item">
@@ -783,7 +897,7 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>For the soft launching and beta testing stage, we are supporting trade replication from Binance to Binance accounts. Soon after we will go live with Kucoin, Coinbase, OKX, MEXC and Crypto.com.</p>
+                    <p>For the soft launch and beta testing stage, we are supporting trade replication from Binance to Binance accounts. Soon after we will go live with Kucoin, Coinbase, OKX, MEXC and Crypto.com.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -793,6 +907,15 @@
                 </button>
                 <div class="faq-answer">
                     <p>We support both Market and Limit order placements across both Spot and Futures markets depending on your purchased plan.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How long does it take for my trade to replicate on my followers account?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The trades are replicated in real-time, often with less than 1 second delay.</p>
                 </div>
             </div>
         </div>
@@ -871,9 +994,9 @@
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
                 <select name="interest" id="interest">
-                    <option value="interested">I'm Interested to help as a beta tester</option>
-                    <option value="question">I Have a Question</option>
-                    <option value="feedback">I'd Like to Give Feedback</option>
+                    <option value="interested">I'm interested to help as a beta tester</option>
+                    <option value="question">I have a question</option>
+                    <option value="feedback">I'd like to give feedback</option>
                     <option value="others">Others</option>
                 </select>
                 <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
@@ -886,7 +1009,7 @@
 
             </div>
            <div class="grid-item">
-            <h3>Customer Support/Enquiries</h3>
+            <h3>Customer Support / Enquiries</h3>
             <p>Email: <a href="mailto:replicatetrading@gmail.com">replicatetrading@gmail.com</a></p>
         </div>
         </div>
