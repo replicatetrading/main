@@ -783,7 +783,7 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>We currently support Binance, Kucoin, and Crypto.com, with more coming soon.</p>
+                    <p>For the soft launching and beta testing stage, we are supporting trade replication from Binance to Binance accounts. Soon after we will go live with Kucoin, Coinbase, OKX, MEXC and Crypto.com.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -792,7 +792,7 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>We support both Market and Limit order placements across Spot and Futures markets depending on your tier.</p>
+                    <p>We support both Market and Limit order placements across both Spot and Futures markets depending on your purchased plan.</p>
                 </div>
             </div>
         </div>
@@ -871,7 +871,7 @@
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
                 <select name="interest" id="interest">
-                    <option value="interested">I'm Interested</option>
+                    <option value="interested">I'm Interested to help as a beta tester</option>
                     <option value="question">I Have a Question</option>
                     <option value="feedback">I'd Like to Give Feedback</option>
                     <option value="others">Others</option>
@@ -914,7 +914,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     })
     .then(response => {
         console.log("Form submitted");
-        alert("Form submitted successfully!");
+        alert("Form submitted successfully, We will contact you shortly !");
         form.reset();
     })
     .catch(error => {
